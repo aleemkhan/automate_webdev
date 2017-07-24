@@ -1,0 +1,109 @@
+
+
+<div class="row raised bg-dark">
+
+	<div class="column-12">
+
+		<div class="form-input">
+
+			<input
+				type="text"
+				name="search" 
+				ng-model="search" 
+				placeholder="Search..." 
+			>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<div class="row bg-primary raised">
+
+	<div class="column-12">
+
+		<table>
+
+			<thead>
+
+				<tr>
+
+					<th>ID</th>
+					<th>Interviewee Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>type</th>
+					<th>Interviewer Name</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>Date</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr ng-repeat="application in applications | orderBy:'id' | filter:search track by $index"  style="background: {{myColors[application.interviewType.selected]}};">
+
+					<td>
+						{{application.id}}
+					</td>
+
+					<td>
+						{{application.interviewee.value.length<=12 ? 
+							application.interviewee.value : 
+							( application.interviewee.value.split(' ').length < 2 ? 
+								(application.interviewee.value | limitTo:12) : 
+								application.interviewee.value.split(' ')[0] + ' ' + application.interviewee.value.split(' ')[1][0]+'.' )
+						}}
+					</td>
+
+					<td>
+						{{application.email.value}}
+					</td>
+
+					<td>
+						{{application.phone.value}}
+					</td>
+
+					<td>
+						{{application.interviewType.types[application.interviewType.selected-1].name}}
+					</td>
+
+					<td>
+						{{application.interviewer.value.length<=12 ? 
+							application.interviewer.value : 
+							( application.interviewer.value.split(' ').length < 2 ? 
+								(application.interviewer.value | limitTo:12) : 
+								application.interviewer.value.split(' ')[0] + ' ' + application.interviewer.value.split(' ')[1][0]+'.' )
+						}}
+					</td>
+					
+					<td>
+						{{application.address.value}}
+					</td>
+
+					<td ng-show="application.city.selected != 6">
+						{{application.city.cities[application.city.selected].name}}
+					</td>
+					
+					<td ng-show="application.city.selected == 6">
+						{{application.city.elsewhere}}
+					</td>
+					
+					<td>
+						{{application.date.value.split('T')[0]}}
+					</td>
+
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+	
+</div>

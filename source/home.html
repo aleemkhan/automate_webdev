@@ -1,0 +1,128 @@
+
+
+<div class="row vertical-center">
+
+	<div class="column-2"></div>
+
+	<div class="column-8 raised transition" style="background: {{myColors[interviewForm.interviewType.selected]}};">
+
+		<form 
+			name="myInterviewForm" 
+			ng-model="interviewForm"
+			>
+
+			<div class="form-input" ng-show="formFieldIndex==1">
+				<label>{{interviewForm.interviewType.label}}</label>
+				<select 
+					name="interviewType" 
+					ng-model="interviewForm.interviewType.selected" 
+					value="{{interviewForm.interviewType.selected}}" 
+					ng-options="type.id as type.name for type in interviewForm.interviewType.types"
+					required>
+					<option value="">Select Interview Type</option>
+				</select>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==2">
+				<label>{{interviewForm.city.label}}</label>
+				<select 
+					name="city" 
+					ng-options="city.id as city.name for city in interviewForm.city.cities"
+					value="{{interviewForm.city.selected}}"  
+					ng-model="interviewForm.city.selected" 
+					required>
+					<option value="">Select City</option>
+				</select>
+				<div class="form-sub-input" ng-show="formFieldIndex==2 && interviewForm.city.selected == 6">
+					<label>Name of the city</label>
+					<input
+						type="text"
+						name="address" 
+						ng-model="interviewForm.city.elsewhere" 
+						placeholder="Enter the name of the city"
+						ng-required="interviewForm.city.selected == 6" 
+						>
+				</div>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==3">
+				<label>{{interviewForm.address.label}}</label>
+				<input
+					type="text"
+					name="address" 
+					ng-model="interviewForm.address.value" 
+					placeholder="{{interviewForm.address.placeholder}}" 
+					required>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==4">
+				<label>{{interviewForm.interviewer.label}}</label>
+				<input 
+					type="text"
+					name="interviewer" 
+					ng-model="interviewForm.interviewer.value" 
+					placeholder="{{interviewForm.interviewer.placeholder}}"
+					required>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==5">
+				<label>{{interviewForm.interviewee.label}}</label>
+				<input 
+					type="text"
+					name="interviewee" 
+					ng-model="interviewForm.interviewee.value" 
+					placeholder="{{interviewForm.interviewee.placeholder}}"
+					required>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==6">
+				<label>{{interviewForm.email.label}}</label>
+				<input 
+					type="email"
+					name="email" 
+					ng-model="interviewForm.email.value" 
+					placeholder="{{interviewForm.email.placeholder}}"
+					required>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==7">
+				<label>{{interviewForm.phone.label}}</label>
+				<input 
+					type="tel"
+					name="phone" 
+					ng-model="interviewForm.phone.value" 
+					ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"
+					placeholder="{{interviewForm.phone.placeholder}}"
+					required>
+			</div>
+
+			<div class="form-input" ng-show="formFieldIndex==8">
+				<label>{{interviewForm.date.label}}</label>
+				<input 
+					type="date"
+					name="date" 
+					ng-model="interviewForm.date.value" 
+					placeholder="{{interviewForm.date.placeholder}}"
+					required>
+			</div>
+
+			<div class="form-input">
+				<input
+					class="btn bg-success pull-right"
+					ng-show="myInterviewForm.$valid && formFieldIndex == 8"
+					ng-click="submitForm(myInterviewForm)" 
+					type="submit" 
+					ng-model="submit" 
+					name="submit">
+			</div>
+
+		</form>
+
+		<a class="btn bg-warning pull-left" ng-model="formFieldIndex" ng-click="previousField()" ng-show="formFieldIndex>1">Back</a>
+		<a class="btn bg-warning pull-right" ng-model="formFieldIndex" ng-click="nextField()" ng-show="formFieldIndex<8">Next</a>
+
+	</div>
+
+	<div class="column-2"></div>
+
+</div>

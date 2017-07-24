@@ -1,0 +1,306 @@
+
+//definition of server
+
+$font-stack: 'Roboto', sans-serif
+$primary-color: #fff
+$primary-bg : #aaa
+$secondary-color: #ccc
+
+$danger: #f44336
+$success: #4CAF50
+$warning: orange
+$info: #008CBA
+$dark: #555555 
+$primary: #e7e7e7
+
+
+
+html,
+body 
+  font: 100% $font-stack
+  color: $primary-color
+  background: $primary-bg
+  width: 100%
+  min-height: 100%
+  height: 100%
+  display: table
+
+
+input[type=text], 
+input[type=email], 
+input[type=tel],  
+input[type=date],
+select 
+    width: 100%
+    padding: 15px 15px
+    margin: 8px 0 0 0
+    display: inline-block
+    border: 1px solid #ccc
+    box-sizing: border-box
+    transition: all 0.5s ease
+
+
+input[type=submit] 
+    width: 33%
+
+
+form
+    transition: all 0.5s ease
+
+
+.form-input > span 
+	color: red
+	font-size: 10px
+
+
+.form-input
+	margin-bottom: 8px
+
+
+input[type=text].ng-invalid.ng-touched, 
+input[type=email].ng-invalid.ng-touched, 
+input[type=date].ng-invalid.ng-touched, 
+input[type=tel].ng-invalid.ng-touched, 
+select.ng-invalid.ng-touched
+    border: 2px solid $danger !important
+    color: $danger !important 
+
+input[type=text].ng-pristine.ng-untouched, 
+input[type=email].ng-pristine.ng-untouched, 
+input[type=date].ng-pristine.ng-untouched, 
+input[type=tel].ng-pristine.ng-untouched, 
+select.ng-invalid.pristine.ng-untouched
+    border: 2px solid $info !important
+    color: $info !important
+
+input[type=text].ng-valid, 
+input[type=email].ng-valid, 
+input[type=date].ng-valid, 
+input[type=tel].ng-valid, 
+select.ng-invalid.valid
+    border: 2px solid $success !important
+    color: $success !important
+
+@import "variables"
+@import "mixins"
+ 
+*, 
+*:after, 
+*:before 
+    margin: 0
+    padding: 0
+    @include border-box
+     
+img 
+    width: auto
+    max-width: 100%
+    height: auto !important
+
+%clearfix
+    *zoom: 1
+    &:before, 
+    &:after 
+        content: " "
+        display: table
+    &:after 
+        clear: both
+ 
+.wrapper 
+    width: 100%;
+    margin: 0 auto;
+    
+ 
+.wrapper, 
+.row 
+    @extend %clearfix
+    
+      
+[class*='column-'] 
+    float: left
+    padding: 1em
+    width: 100%
+    min-height: 1px 
+  
+ 
+@media #{$breakpoint-medium} 
+    .wrapper       
+        width: 95%
+        max-width: $grid-max-width    
+
+    @for $i from 1 through $grid-columns      
+        .column-#{$i}         
+            width: 100% / $grid-columns * $i
+
+.transition
+    transition: all 0.5s ease
+
+.form_
+    background-color: silver
+
+.form_lightgreen
+    background-color: lightgreen
+
+.form_lightblue
+    background-color: lightblue
+
+
+.pull-right
+    float: right
+
+.pull-left
+    float: left
+
+.raised
+    box-shadow: 0 6px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+
+.btn
+    @extend .transition
+    border: none
+    color: white
+    padding: 12px 30px
+    text-align: center
+    display: inline-block;
+    font-size: 16px
+    width: auto
+    text-transform: uppercase
+    text-decoration: none
+    color: white
+    cursor: pointer
+
+
+.btn:hover
+    box-shadow: 0 6px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+
+.bg-success
+    background-color: $success
+
+.bg-info 
+    background-color: $info
+
+.bg-danger 
+    background-color: $danger
+
+.bg-primary
+    background-color: $primary
+    color: black
+
+.bg-dark
+    background-color: $dark 
+
+.bg-warning
+    background-color: $warning
+
+
+.all-border-btn
+    color: black
+    background: white
+    width: auto
+
+.border-success
+    border: 2px solid $success
+    @extend .all-border-btn
+
+.border-info 
+    border: 2px solid $info
+    @extend .all-border-btn
+
+.border-danger 
+    border: 2px solid $danger
+    @extend .all-border-btn
+
+.border-primary
+    border: 2px solid $primary
+    @extend .all-border-btn
+
+.border-dark
+    border: 2px solid $dark
+    @extend .all-border-btn
+
+.border-warning
+    border: 2px solid $warning
+    @extend .all-border-btn
+
+
+.border-success:hover
+    @extend .bg-success
+    color: white
+
+.border-info:hover
+    @extend .bg-info
+    color: white
+
+.border-danger:hover
+    @extend .bg-danger
+    color: white
+
+.border-primary:hover
+    @extend .bg-primary
+    color: white
+
+.border-dark:hover
+    @extend .bg-dark 
+    color: white
+
+.border-warning:hover
+    @extend .bg-warning
+    color: white
+
+
+.vertical-center
+    display: table-cell
+    vertical-align: middle
+    height: 100%
+    width: 100%
+
+
+.vertical-center
+    display: table-cell
+    vertical-align: middle
+    height: 100%
+    width: 100%
+
+.main
+    display: table-row
+    height: 100%
+    width: 100%
+
+.alert
+    width: 100%
+    position: absolute
+    top: 0px
+    left: 0px
+    padding: 16px 20px
+    z-index: 100
+
+.padding0
+    padding: 0px
+
+.full-width
+    width: 100%
+
+h2
+    padding: 5px 20px
+    font-weight: 300
+
+.form-sub-input
+    margin-top: 10px
+
+table
+    width: 100%
+    background: white
+    color: black
+    border-spacing: 0px
+
+
+td,
+th
+    border: 0px
+    padding: 10px 5px
+    border-bottom: 1px solid silver
+
+td
+    color: white
+
+th
+    text-align: left
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<!-- inject:css -->
+
+  		<!-- endinject -->
+
+	</head>
+
+	<body ng-app="recordSure"  ng-controller="mainController">
+
+		<div class="row bg-info raised">
+
+			<div class="column-8 padding0">
+
+				<h2>Immigration Services</h2>
+				
+			</div>
+
+			<div class="column-2 padding0">
+
+				<a class="btn bg-info full-width" href="#!/"> Home </a>
+
+			</div>
+			
+			<div class="column-2 padding0">
+
+				<a class="btn bg-info" href="#!applications"> Applications </a>
+
+			</div>
+
+		</div>
+
+		<div class="row raised bg-success" ng-modal="alert" ng-show="showAlert">
+
+			<div class="column-12">
+
+				Form submitted successfully.
+
+			</div>
+
+		</div>
+
+		<div class="main" ng-view>
+
+		</div>
+		
+		<!-- inject:js -->
+		
+  		<!-- endinject -->
+
+
+	</body>
+
+</html>
