@@ -8,12 +8,13 @@
 
 */
 
-var connect = require('connect');
+const express = require('express')
+const app = express()
 
-var serveStatic = require('serve-static');
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
-connect().use(serveStatic(__dirname)).listen(8080, function(){
-
-    console.log('Server running on 8080...');
-
-});
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
